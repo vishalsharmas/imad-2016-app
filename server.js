@@ -6,45 +6,43 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles = {
-    var articleone: {
+    'article-one': {
     title:   'article one vishal sharma',
     heading: 'article one',
     date:    'september 5, 2016',
-    content:     <p>
-                      this is the content of my first article.this is the content of my first article.
-                      this is the content of my first article.this is the content of my first article.
-                      this is the content of my first article.this is the content of my first article.
-                 </p>
-                 <p>
-                      this is the content of my first article.this is the content of my first article.
-                      this is the content of my first article.this is the content of my first article.
-                      this is the content of my first article.this is the content of my first article.
-                 </p>
-                 <p>
-                       this is the content of my first article.this is the content of my first article.
-                       this is the content of my first article.this is the content of my first article.
-                       this is the content of my first article.this is the content of my first article.
-                  </p>`
-   },
-    var articletwo: 
-    {
+    content:   ` <p>
+             this is the content of my first article.this is the content of my first article.
+            this is the content of my first article.this is the content of my first article.
+            this is the content of my first article.this is the content of my first article.
+          </p><p>
+          
+           this is the content of my first article.this is the content of my first article.
+           this is the content of my first article.this is the content of my first article.
+           this is the content of my first article.this is the content of my first article.
+        </p><p>
+         
+           this is the content of my first article.this is the content of my first article.
+           this is the content of my first article.this is the content of my first article.
+           this is the content of my first article.this is the content of my first article.
+          </p>
+},
+   
+   'article-two': {
     title:    'article two vishal sharma',
     heading:  'article two',
     date:     'september 5, 2016',
     content:   <p>
                this is the content of my second article.this is the content of my second article.
-             
-              </p>`
+              </p>
    },
-
-    var articlethree:
-    {
+   'article-three': {
     title:   'article three vishal sharma',
     heading: 'article three',
     date:    'september 15, 2016',
     content:  <p>
-               this is the content of my third article.
-                </p>`
+             this is the content of my third article.
+           
+            </p>` 
    },
 };
 
@@ -53,6 +51,7 @@ function createtemplate (data) {
     var heading = data.heading;
     var date = data.date;
     var content = data.content;
+    
     var htmltemplate = `<html>
     <head>
         <title>
@@ -62,12 +61,13 @@ function createtemplate (data) {
                <link href="/ui/style.css" rel="stylesheet" />
         </head>
      <body>
+     <div class="container">
         <div>
             <a href="/">home</a>
         </div>
     <hr/>
     <h3>${heading}</h3>
-    <div class="container"><div>
+    <div>
        ${date}
     </div>
     <div>
@@ -82,8 +82,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function (req, res) {
-   res.send(createtemplate(articleone));
+app.get('/:articlename',function (req, res) {
+    // articlename == article-one
+    // articles[articlename] == {} content object for article one
+    var articlename = req.params.articlename;
+   res.send(createtemplate(articles[articlename]));
 });
 app.get('/article-two',function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
