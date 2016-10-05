@@ -10,7 +10,7 @@ var articles = {
     title:   'article one vishal sharma',
     heading: 'article one',
     date:    'september 5, 2016',
-    content:   ` <p>
+    content:    `<p>
              this is the content of my first article.this is the content of my first article.
             this is the content of my first article.this is the content of my first article.
             this is the content of my first article.this is the content of my first article.
@@ -27,23 +27,22 @@ var articles = {
           </p>
 },
    
-   'article-two': {
-    title:    'article two vishal sharma',
-    heading:  'article two',
-    date:     'september 5, 2016',
+     'article-two':  {
+    title:      'article two vishal sharma',
+    heading:    'article two',
+    date:       'september 5, 2016',
     content:   <p>
                this is the content of my second article.this is the content of my second article.
-              </p>
-   },
-   'article-three': {
-    title:   'article three vishal sharma',
-    heading: 'article three',
-    date:    'september 15, 2016',
-    content:  <p>
-             this is the content of my third article.
-           
-            </p>` 
-   },
+               </p>`
+ },
+     'article-three': {
+    title:    'article three vishal sharma',
+    heading:  'article three',
+    date:     'september 15, 2016',
+    content:   `<p>
+              this is the content of my third article.
+              </p>` 
+},
 };
 
 function createtemplate (data) {
