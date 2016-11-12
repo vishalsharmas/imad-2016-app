@@ -23,6 +23,16 @@
             <input type="text" id="name" placeholder="name"></input> 
             <input type="submit" value="submit" id = "submit_btn"></input>
             <ul id = "namelist"></ul>
+            <form method='post'>
+                Comment:<br />
+  <textarea name='comment' id='comment'></textarea><br />
+
+  <input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
+
+  <input type='submit' value='Submit' />  
+</form>
+
+            
           </div>
          </div>  
          <script type="text/javascript" src="/ui/main.js">
